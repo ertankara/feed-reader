@@ -54,7 +54,8 @@ $(function () {
 
   /* TODO: Write a new test suite named "The menu" */
   describe('The menu', function () {
-    var body;
+    var body,
+        menuIcon;
 
     beforeEach(function () {
       body = document.body;
@@ -128,8 +129,6 @@ $(function () {
     });
 
     it('content changes upon calling of loadFeed with different parameter', function (done) {
-
-
       expect(firstLoad).not.toEqual(secondLoad);
       done();
     });

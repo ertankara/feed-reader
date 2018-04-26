@@ -55,7 +55,7 @@ $(function () {
   /* TODO: Write a new test suite named "The menu" */
   describe('The menu', function () {
     var body,
-        menuIcon;
+      menuIcon;
 
     beforeEach(function () {
       body = document.body;
@@ -68,7 +68,7 @@ $(function () {
      * hiding/showing of the menu element.
      */
     it('hidden by deafult', function () {
-      expect(body.className).toContain('menu-hidden');
+      expect($(document.body).hasClass('menu-hidden')).toBe(true);
     });
 
 
@@ -80,11 +80,11 @@ $(function () {
     it('changes visibility when icon is clicked', function () {
       // First click should make the menu-hidden removed from body
       menuIcon.click();
-      expect(body.className).not.toContain('menu-hidden');
+      expect($(document.body).hasClass('menu-hidden')).toBe(false);
 
       // Second click should make the menu-hidden added to the body
       menuIcon.click();
-      expect(body.className).toContain('menu-hidden');
+      expect($(document.body).hasClass('menu-hidden')).toBe(true);
     });
   });
 
@@ -106,14 +106,14 @@ $(function () {
 
 
     it('are loaded', function (done) {
-      expect('.entry').not.toBe(0);
+      expect($('.feed .entry')).not.toBe(0);
       done();
     });
   });
   /* TODO: Write a new test suite named "New Feed Selection" */
   describe('New Feed Selection', function () {
     var firstLoad,
-        secondLoad;
+      secondLoad;
     /* TODO: Write a test that ensures when a new feed is loaded
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
